@@ -1,0 +1,54 @@
+﻿@model hemenmo.Models.home
+@{
+    ViewBag.Title = @Model.PageTitle;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+ </div>
+<div class="ui-header ui-bar-c">
+    <a href="javascript:history.back()" class="ui-btn ui-btn-c" style="text-align: left;"><i class="fa fa-chevron-circle-left"></i> Geri</a>
+</div>
+<div data-role="main" class="ui-content">
+    <h1 style="color: #a8333e;margin-top: 0px;">
+        @Model.game_name
+        <br/>
+        @for (int i = 1; i < 6; i++)
+        {
+            if (i <= Model.game_rating)
+            {
+                <a href="/oyna/@Model.game_name_seo/@i"><i class="fa fa-star" style="color:#f6a031; "></i></a>
+            }
+            else
+            {
+                <a href="/oyna/@Model.game_name_seo/@i"><i class="fa fa-star" style="color:#868686; "></i></a>
+            }
+        }
+</h1>
+    <p>@Model.CategoryName Oyunları</p>
+<center>
+<a href="/oyna/@Model.game_name_seo/hemenoyna" class="ui-btn ui-corner-all ui-btn-b ui-btn-inline" style="padding: .2em .2em 0 .2em;">
+<img src="/games/@Model.game_bigimage" style="width: 28%; max-width: 120px;" />
+                <img src="/images/hemen-oyna-btn.png" style="width:71%; max-width: 300px;" />
+            </a>
+</center>
+    
+    <div class="ui-header ui-bar">
+        <center>
+            <a href="#" class="ui-btn ui-btn-inline ui-corner-all ui-btn-c" style="font-size:24px">@Model.game_play_count kez oynandı</a>
+        </center>
+        <p style="display:block; float: left; padding:0px 25px;">
+            <a href="/oyna/@Model.game_name_seo/like">
+                <i class="fa fa-thumbs-o-up" style="color:blue; font-size:24px;"></i> @Model.game_likes</a>
+            <a href="/oyna/@Model.game_name_seo/dislike"><i class="fa fa-thumbs-o-down" style="color:grey; font-size:24px;"></i> @Model.game_dislikes</a>
+	</p>
+        <div class="fb-like" data-href="http://hemenmobiloyun.com/oyna/@Model.game_name_seo" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true" style="display:block; float: right; padding:0px 25px;"></div>
+    </div>
+    <p>@Model.game_description</p>
+        <center>
+        <div data-role="main" class="ui-content">
+            <span class="ui-sub-text">Hem arkadaşlarınızla hem de kendi başınıza oynayabileceğiniz onlarca mobil oyun Hemen Mobil Oyun'da</span>
+        </div>
+    </center>
+</div>
+
+

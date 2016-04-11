@@ -1,0 +1,138 @@
+﻿@model hemenmo.Models.home
+            <div class="ui-header ui-bar-b">
+                    <center><a href="/en-yeni-mobil-oyunlar" class="ui-btn ui-btn-inline ui-corner-all">En Yeni Mobil Oyunlar</a></center>
+            </div>
+<div data-role="main" class="ui-content" style="padding: 1em 0em;max-height:400px; overflow:hidden;">
+    <center>
+  @using (var db=new hemenmo.Models.hemenmoContainer())
+    {
+    
+                foreach (var item in db.sp_list_games().OrderByDescending(x=>x.add_date).Take(26))
+                {
+				string rozet_addr = "";
+     switch (item.rozet)
+     {
+        case 1: rozet_addr = "/rozetler/new.png"; break;
+        case 2: rozet_addr = "/rozetler/turkce.png"; break;
+        case 3: rozet_addr = "/rozetler/private.png"; break;
+        default:break;
+     }
+                    <a href="/oyna/@item.name_seo"class="ui-btn ui-btn-inline ui-corner-all ui-mini" style="padding: .2em .5em; width:80px;">
+			<p style="font-size: .8em; margin:auto; overflow:hidden;white-space: normal;height: 3em;">@item.name</p>
+                        <img src="@rozet_addr" style="width: 100%; max-width:60px; background-image:url(/games/@item.smallimage);border-radius: 7px; border: 3px solid #ff0000;">
+<br />
+                    @for (int i = 1; i < 6; i++)
+                    {
+                        if (i <= @item.rating)
+                        {
+                            <i class="fa fa-star" style="color:#f6a031;font-size: .8em; "></i>
+                        }
+                        else
+                        {
+                            <i class="fa fa-star" style="color:#868686;font-size: .8em; "></i>
+                        }
+                    }
+                    </a>
+                }}
+    </center>
+</div>
+            <div class="ui-header ui-bar-b">
+                   <center> <a href="/en-cok-sevilen-mobil-oyunlar" class="ui-btn ui-btn-inline ui-corner-all">En Çok Beğenilen Mobil Oyunlar</a>
+            </center></div>
+<div data-role="main" class="ui-content" style="padding: 1em 0em;max-height:400px; overflow:hidden;">
+    <center>
+                @foreach (var item in Model.Oyunlar.OrderByDescending(x => x.rating).Take(26))
+                {
+                    <a href="/oyna/@item.game_name_seo"class="ui-btn ui-btn-inline ui-corner-all ui-mini" style="padding: .2em .5em; width:80px;">
+			<p style="font-size: .8em; margin:auto; overflow:hidden;white-space: normal;height: 3em;">@item.game_name</p>
+                        <img src="@item.rozet" style="width: 100%; max-width:60px; background-image:url(/games/@item.smallimage);border-radius: 7px; border: 3px solid #ff0000;">
+<br />
+                    @for (int i = 1; i < 6; i++)
+                    {
+                        if (i <= @item.rating)
+                        {
+                            <i class="fa fa-star" style="color:#f6a031;font-size: .8em; "></i>
+                        }
+                        else
+                        {
+                            <i class="fa fa-star" style="color:#868686;font-size: .8em; "></i>
+                        }
+                    }
+                    </a>
+                }
+    </center>
+</div>
+            <div class="ui-header ui-bar-b">
+                    <center><a href="/en-cok-oynanan-mobil-oyunlar" class="ui-btn ui-btn-inline ui-corner-all">En Çok Oynanan Mobil Oyunlar</a>
+            </center></div>
+<div data-role="main" class="ui-content" style="padding: 1em 0em;max-height:400px; overflow:hidden;">
+    <center>
+  @using (var db=new hemenmo.Models.hemenmoContainer())
+    {
+    
+                foreach (var item in db.sp_list_games().OrderByDescending(x=>x.play_count).Take(26))
+                {
+				string rozet_addr = "";
+     switch (item.rozet)
+     {
+        case 1: rozet_addr = "/rozetler/new.png"; break;
+        case 2: rozet_addr = "/rozetler/turkce.png"; break;
+        case 3: rozet_addr = "/rozetler/private.png"; break;
+        default:break;
+     }
+                    <a href="/oyna/@item.name_seo"class="ui-btn ui-btn-inline ui-corner-all ui-mini" style="padding: .2em .5em; width:80px;">
+			<p style="font-size: .8em; margin:auto; overflow:hidden;white-space: normal;height: 3em;">@item.name</p>
+                        <img src="@rozet_addr" style="width: 100%; max-width:60px; background-image:url(/games/@item.smallimage);border-radius: 7px; border: 3px solid #ff0000;">
+<br />
+                    @for (int i = 1; i < 6; i++)
+                    {
+                        if (i <= @item.rating)
+                        {
+                            <i class="fa fa-star" style="color:#f6a031;font-size: .8em; "></i>
+                        }
+                        else
+                        {
+                            <i class="fa fa-star" style="color:#868686;font-size: .8em; "></i>
+                        }
+                    }
+                    </a>
+                }}
+    </center>
+</div>
+            <div class="ui-header ui-bar-b">
+                   <center> <a href="/one-cikan-mobil-oyunlar" class="ui-btn ui-btn-inline ui-corner-all">Öne Çıkan Mobil Oyunlar</a>
+            </center></div>
+<div data-role="main" class="ui-content" style="padding: 1em 0em; max-height:400px; overflow:hidden;">
+    <center>
+  @using (var db=new hemenmo.Models.hemenmoContainer())
+    {
+    
+                foreach (var item in db.sp_list_games().OrderByDescending(x=>x.likes).Take(26))
+                {
+				string rozet_addr = "";
+     switch (item.rozet)
+     {
+        case 1: rozet_addr = "/rozetler/new.png"; break;
+        case 2: rozet_addr = "/rozetler/turkce.png"; break;
+        case 3: rozet_addr = "/rozetler/private.png"; break;
+        default:break;
+     }
+                    <a href="/oyna/@item.name_seo"class="ui-btn ui-btn-inline ui-corner-all ui-mini" style="padding: .2em .5em; width:80px;">
+			<p style="font-size: .8em; margin:auto; overflow:hidden;white-space: normal;height: 3em;">@item.name</p>
+                        <img src="@rozet_addr" style="width: 100%; max-width:60px; background-image:url(/games/@item.smallimage);border-radius: 7px; border: 3px solid #ff0000;">
+<br />
+                    @for (int i = 1; i < 6; i++)
+                    {
+                        if (i <= @item.rating)
+                        {
+                            <i class="fa fa-star" style="color:#f6a031;font-size: .8em; "></i>
+                        }
+                        else
+                        {
+                            <i class="fa fa-star" style="color:#868686;font-size: .8em; "></i>
+                        }
+                    }
+                    </a>
+                }}
+    </center>
+</div>

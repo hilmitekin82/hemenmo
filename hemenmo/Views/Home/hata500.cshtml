@@ -1,0 +1,42 @@
+﻿@model hemenmo.Models.home
+
+@{
+    ViewBag.Title = "Hata 404: Sayfa Bulunamadı";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div data-role="navbar">
+    <ul>
+        @{
+            int k = 0;
+        }
+        @foreach (var kategory in Model.Kategoriler.Take(5).Where(x => x.category_top_menu != 0))
+        {
+            if (k % 2 == 0)
+            {
+                <li><a href="/oyun/@kategory.category_name_seo" data-theme="c">@kategory.category_name</a></li>
+            }
+            else
+            {
+                <li><a href="/oyun/@kategory.category_name_seo" data-theme="b">@kategory.category_name</a></li>
+            }
+            k++;
+        }
+    </ul>
+</div>
+  </div>
+<div data-role="main" class="ui-content" style="padding:0px !important;">
+
+    <center>
+
+        <div data-role="main" class="ui-content" style="padding-top:0.2em">
+            <img src="~/images/500.png" style="
+    max-width: 512px;
+    width: 100%;
+" />
+        </div>
+        <div data-role="main" class="ui-content" style="padding-top:0.2em">
+            <span class="ui-sub-text">Hem arkadaşlarınızla hem de kendi başınıza oynayabileceğiniz onlarca mobil oyun Hemen Mobil Oyun'da</span>
+        </div>
+    </center>
+</div>

@@ -1,0 +1,377 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="hemenmo.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <Function Name="sep_list_categories" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="hemenmo" />
+        <Function Name="set_dislike" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="hemenmo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="set_like" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="hemenmo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="set_play_count" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="hemenmo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="set_rating" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="hemenmo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="vote" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_add_categry" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="hemenmo">
+          <Parameter Name="category" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="seo_url" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="top_menu" Type="int" Mode="In" />
+          <Parameter Name="panel" Type="int" Mode="In" />
+          <Parameter Name="icon" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="description" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_add_slider" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="hemenmo">
+          <Parameter Name="image" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="order" Type="int" Mode="In" />
+          <Parameter Name="link" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="active" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_del_categry" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="hemenmo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_del_slider" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="hemenmo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_delete_game" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="hemenmo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_get_game" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="hemenmo">
+          <Parameter Name="name_seo" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_insert_game" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="hemenmo">
+          <Parameter Name="name" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="name_seo" Type="nvarchar" Mode="In" />
+          <Parameter Name="cat_id" Type="int" Mode="In" />
+          <Parameter Name="gameplay_url" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="smallimage" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="bigimage" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="title" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="description" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="embed_code" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="spot" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="rating" Type="int" Mode="In" />
+          <Parameter Name="play_count" Type="int" Mode="In" />
+          <Parameter Name="likes" Type="int" Mode="In" />
+          <Parameter Name="dislikes" Type="int" Mode="In" />
+          <Parameter Name="rozet" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_list_games" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="hemenmo" />
+        <Function Name="sp_list_slider" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="hemenmo" />
+        <Function Name="sp_store_the_click_id" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="hemenmo">
+          <Parameter Name="click_id" Type="nvarchar(max)" Mode="In" />
+        </Function>
+      <Function Name="sp_update_the_click_id" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="hemenmo">
+        <Parameter Name="click_id" Type="nvarchar(max)" Mode="In" />
+        <Parameter Name="goal" Type="smallint" Mode="In" />
+      </Function>
+        <Function Name="sp_update_categry" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="hemenmo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="category" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="seo_url" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="top_menu" Type="int" Mode="In" />
+          <Parameter Name="panel" Type="int" Mode="In" />
+          <Parameter Name="icon" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="description" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_update_game" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="hemenmo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="name" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="name_seo" Type="nvarchar" Mode="In" />
+          <Parameter Name="cat_id" Type="int" Mode="In" />
+          <Parameter Name="gameplay_url" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="smallimage" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="bigimage" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="title" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="description" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="embed_code" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="spot" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="rozet" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_user_login" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="hemenmo">
+          <Parameter Name="uname" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="pass" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <EntityContainer Name="hemenmoStoreContainer" />
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="hemenmo" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" >
+        <EntityContainer Name="hemenmoContainer" annotation:LazyLoadingEnabled="true">
+          <FunctionImport Name="sp_delete_game">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_insert_game">
+            <Parameter Name="name" Mode="In" Type="String" />
+            <Parameter Name="name_seo" Mode="In" Type="String" />
+            <Parameter Name="cat_id" Mode="In" Type="Int32" />
+            <Parameter Name="gameplay_url" Mode="In" Type="String" />
+            <Parameter Name="smallimage" Mode="In" Type="String" />
+            <Parameter Name="bigimage" Mode="In" Type="String" />
+            <Parameter Name="title" Mode="In" Type="String" />
+            <Parameter Name="description" Mode="In" Type="String" />
+            <Parameter Name="embed_code" Mode="In" Type="String" />
+            <Parameter Name="spot" Mode="In" Type="String" />
+            <Parameter Name="rating" Mode="In" Type="Int32" />
+            <Parameter Name="play_count" Mode="In" Type="Int32" />
+            <Parameter Name="likes" Mode="In" Type="Int32" />
+            <Parameter Name="dislikes" Mode="In" Type="Int32" />
+            <Parameter Name="rozet" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_list_games" ReturnType="Collection(hemenmo.sp_list_games_Result)" />
+          <FunctionImport Name="sp_update_game">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="name" Mode="In" Type="String" />
+            <Parameter Name="name_seo" Mode="In" Type="String" />
+            <Parameter Name="cat_id" Mode="In" Type="Int32" />
+            <Parameter Name="gameplay_url" Mode="In" Type="String" />
+            <Parameter Name="smallimage" Mode="In" Type="String" />
+            <Parameter Name="bigimage" Mode="In" Type="String" />
+            <Parameter Name="title" Mode="In" Type="String" />
+            <Parameter Name="description" Mode="In" Type="String" />
+            <Parameter Name="embed_code" Mode="In" Type="String" />
+            <Parameter Name="spot" Mode="In" Type="String" />
+            <Parameter Name="rozet" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sep_list_categories" ReturnType="Collection(hemenmo.sep_list_categories_Result)" />
+          <FunctionImport Name="sp_get_game" ReturnType="Collection(hemenmo.sp_get_game_Result)">
+          <Parameter Name="name_seo" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_list_slider" ReturnType="Collection(hemenmo.sp_list_slider_Result)" />
+          <FunctionImport Name="set_dislike">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="set_like">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="set_play_count">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="set_rating">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="vote" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_add_categry">
+            <Parameter Name="category" Mode="In" Type="String" />
+            <Parameter Name="seo_url" Mode="In" Type="String" />
+            <Parameter Name="top_menu" Mode="In" Type="Int32" />
+            <Parameter Name="panel" Mode="In" Type="Int32" />
+            <Parameter Name="icon" Mode="In" Type="String" />
+            <Parameter Name="description" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_add_slider">
+            <Parameter Name="image" Mode="In" Type="String" />
+            <Parameter Name="order" Mode="In" Type="Int32" />
+            <Parameter Name="link" Mode="In" Type="String" />
+            <Parameter Name="active" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_del_categry">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_del_slider">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_update_categry">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="category" Mode="In" Type="String" />
+            <Parameter Name="seo_url" Mode="In" Type="String" />
+            <Parameter Name="top_menu" Mode="In" Type="Int32" />
+            <Parameter Name="panel" Mode="In" Type="Int32" />
+            <Parameter Name="icon" Mode="In" Type="String" />
+            <Parameter Name="description" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_user_login" ReturnType="Collection(Boolean)">
+            <Parameter Name="uname" Mode="In" Type="String" />
+            <Parameter Name="pass" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_store_the_click_id">
+            <Parameter Name="click_id" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_update_the_click_id">
+            <Parameter Name="click_id" Mode="In" Type="String" />
+            <Parameter Name="goal" Mode="In" Type="Int16" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="sp_list_games_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="name" Nullable="false" />
+          <Property Type="String" Name="name_seo" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="cat_id" Nullable="false" />
+          <Property Type="String" Name="gameplay_url" Nullable="false" />
+          <Property Type="String" Name="smallimage" Nullable="false" />
+          <Property Type="String" Name="bigimage" Nullable="false" />
+          <Property Type="String" Name="title" Nullable="false" />
+          <Property Type="String" Name="description" Nullable="false" />
+          <Property Type="String" Name="embed_code" Nullable="false" />
+          <Property Type="String" Name="spot" Nullable="false" />
+          <Property Type="Int32" Name="rating" Nullable="false" />
+          <Property Type="Int32" Name="play_count" Nullable="false" />
+          <Property Type="Int32" Name="likes" Nullable="false" />
+          <Property Type="Int32" Name="dislikes" Nullable="false" />
+          <Property Type="DateTime" Name="add_date" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="rozet" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sep_list_categories_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="category" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="seo_url" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="top_menu" Nullable="false" />
+          <Property Type="Int32" Name="panel" Nullable="false" />
+          <Property Type="String" Name="icon" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="description" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_get_game_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="name" Nullable="false" />
+          <Property Type="String" Name="name_seo" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="cat_id" Nullable="false" />
+          <Property Type="String" Name="gameplay_url" Nullable="false" />
+          <Property Type="String" Name="smallimage" Nullable="false" />
+          <Property Type="String" Name="bigimage" Nullable="false" />
+          <Property Type="String" Name="title" Nullable="false" />
+          <Property Type="String" Name="description" Nullable="false" />
+          <Property Type="String" Name="embed_code" Nullable="false" />
+          <Property Type="String" Name="spot" Nullable="false" />
+          <Property Type="Int32" Name="rating" Nullable="false" />
+          <Property Type="Int32" Name="play_count" Nullable="false" />
+          <Property Type="Int32" Name="likes" Nullable="false" />
+          <Property Type="Int32" Name="dislikes" Nullable="false" />
+          <Property Type="DateTime" Name="add_date" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="rozet" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_list_slider_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="image" Nullable="false" />
+          <Property Type="Int32" Name="slide_order" Nullable="false" />
+          <Property Type="Int32" Name="active" Nullable="false" />
+          <Property Type="String" Name="link" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_user_login_Result">
+          <Property Type="Boolean" Name="Column1" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs" Space="C-S">
+        <Alias Key="Model" Value="hemenmo" />
+        <Alias Key="Target" Value="hemenmo.Store" />
+        <EntityContainerMapping CdmEntityContainer="hemenmoContainer" StorageEntityContainer="hemenmoStoreContainer">
+          <FunctionImportMapping FunctionImportName="sp_delete_game" FunctionName="hemenmo.Store.sp_delete_game" />
+          <FunctionImportMapping FunctionImportName="sp_insert_game" FunctionName="hemenmo.Store.sp_insert_game" />
+          <FunctionImportMapping FunctionImportName="sp_list_games" FunctionName="hemenmo.Store.sp_list_games">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="hemenmo.sp_list_games_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="name_seo" ColumnName="name_seo" />
+                <ScalarProperty Name="cat_id" ColumnName="cat_id" />
+                <ScalarProperty Name="gameplay_url" ColumnName="gameplay_url" />
+                <ScalarProperty Name="smallimage" ColumnName="smallimage" />
+                <ScalarProperty Name="bigimage" ColumnName="bigimage" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="embed_code" ColumnName="embed_code" />
+                <ScalarProperty Name="spot" ColumnName="spot" />
+                <ScalarProperty Name="rating" ColumnName="rating" />
+                <ScalarProperty Name="play_count" ColumnName="play_count" />
+                <ScalarProperty Name="likes" ColumnName="likes" />
+                <ScalarProperty Name="dislikes" ColumnName="dislikes" />
+                <ScalarProperty Name="add_date" ColumnName="add_date" />
+                <ScalarProperty Name="rozet" ColumnName="rozet" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_update_game" FunctionName="hemenmo.Store.sp_update_game" />
+          <FunctionImportMapping FunctionImportName="sep_list_categories" FunctionName="hemenmo.Store.sep_list_categories">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="hemenmo.sep_list_categories_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="category" ColumnName="category" />
+                <ScalarProperty Name="seo_url" ColumnName="seo_url" />
+                <ScalarProperty Name="top_menu" ColumnName="top_menu" />
+                <ScalarProperty Name="panel" ColumnName="panel" />
+                <ScalarProperty Name="icon" ColumnName="icon" />
+                <ScalarProperty Name="description" ColumnName="description" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_get_game" FunctionName="hemenmo.Store.sp_get_game">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="hemenmo.sp_get_game_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="name_seo" ColumnName="name_seo" />
+                <ScalarProperty Name="cat_id" ColumnName="cat_id" />
+                <ScalarProperty Name="gameplay_url" ColumnName="gameplay_url" />
+                <ScalarProperty Name="smallimage" ColumnName="smallimage" />
+                <ScalarProperty Name="bigimage" ColumnName="bigimage" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="embed_code" ColumnName="embed_code" />
+                <ScalarProperty Name="spot" ColumnName="spot" />
+                <ScalarProperty Name="rating" ColumnName="rating" />
+                <ScalarProperty Name="play_count" ColumnName="play_count" />
+                <ScalarProperty Name="likes" ColumnName="likes" />
+                <ScalarProperty Name="dislikes" ColumnName="dislikes" />
+                <ScalarProperty Name="add_date" ColumnName="add_date" />
+                <ScalarProperty Name="rozet" ColumnName="rozet" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_list_slider" FunctionName="hemenmo.Store.sp_list_slider">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="hemenmo.sp_list_slider_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="slide_order" ColumnName="slide_order" />
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="link" ColumnName="link" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="set_dislike" FunctionName="hemenmo.Store.set_dislike" />
+          <FunctionImportMapping FunctionImportName="set_like" FunctionName="hemenmo.Store.set_like" />
+          <FunctionImportMapping FunctionImportName="set_play_count" FunctionName="hemenmo.Store.set_play_count" />
+          <FunctionImportMapping FunctionImportName="set_rating" FunctionName="hemenmo.Store.set_rating" />
+          <FunctionImportMapping FunctionImportName="sp_add_categry" FunctionName="hemenmo.Store.sp_add_categry" />
+          <FunctionImportMapping FunctionImportName="sp_add_slider" FunctionName="hemenmo.Store.sp_add_slider" />
+          <FunctionImportMapping FunctionImportName="sp_del_categry" FunctionName="hemenmo.Store.sp_del_categry" />
+          <FunctionImportMapping FunctionImportName="sp_del_slider" FunctionName="hemenmo.Store.sp_del_slider" />
+          <FunctionImportMapping FunctionImportName="sp_update_categry" FunctionName="hemenmo.Store.sp_update_categry" />
+          <FunctionImportMapping FunctionImportName="sp_user_login" FunctionName="hemenmo.Store.sp_user_login" >
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_store_the_click_id" FunctionName="hemenmo.Store.sp_store_the_click_id" />
+          <FunctionImportMapping FunctionImportName="sp_update_the_click_id" FunctionName="hemenmo.Store.sp_update_the_click_id" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="UseLegacyProvider" Value="True" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram Name="hemenmo" />
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

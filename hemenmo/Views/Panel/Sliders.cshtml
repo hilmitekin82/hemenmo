@@ -1,0 +1,28 @@
+﻿@model hemenmo.Models.panel
+
+@{
+    ViewBag.Title = "Sliders";
+    Layout = "~/Views/Shared/admin_panel.cshtml";
+}
+<div data-role="main" class="ui-content">
+    <form method="post" action="/panel/slider" enctype="multipart/form-data" data-ajax="false">
+        <div class="ui-field-contain">
+            <label for="resim">İmaj dosyası (800x450):</label>
+            <input type="file" name="resim" id="resim" />
+            <label for="link">Link:</label>
+            <input type="text" name="link" id="link" />
+            <label for="order">Sıralama:</label>
+            <input type="text" name="order" id="order" />
+        </div>
+        <input type="submit" data-inline="true" value="Ekle" />
+    </form>
+</div>
+<div data-role="main" class="ui-content">
+    <ul data-role="listview" data-inset="true">
+        @foreach (var item in Model.Adminslider)
+        {
+            <li><a href="/panel/slidersil/@item.image_id"><image src="/sliders/@item.image_name" style="padding:10px;" />Sil</a></li>
+        }
+    </ul>
+</div>
+

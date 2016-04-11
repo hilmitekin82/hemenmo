@@ -1,0 +1,18 @@
+﻿@model hemenmo.Models.home
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@Model.PageTitle</title>
+</head>
+<body>
+    <div>
+        @Html.Raw(Model.game_embed_code)
+    </div>
+</body>
+</html>

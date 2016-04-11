@@ -1,0 +1,53 @@
+﻿@model hemenmo.Models.home
+    
+@{
+    ViewBag.Title = Model.PageTitle;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string h1 = "Tüm Oyunlar";
+    int oyunsay = Model.Oyunlar.Count();
+    var a = Model.Oyunlar.ToList();
+    if (!string.IsNullOrEmpty(Model.CategoryName))
+    {
+        h1 = Model.CategoryName + " Oyunları";
+        a = Model.Oyunlar.Where(x => x.cat_id == Model.CategoryId).ToList();
+        oyunsay = Model.Oyunlar.Where(x => x.cat_id == Model.CategoryId).Count();
+    }
+}
+
+</div>
+<div class="ui-header ui-bar-c">
+    <a href="/" class="ui-btn ui-btn-c" style="text-align: left;"><i class="fa fa-chevron-circle-left"></i> Geri</a>
+    <a href="/oyun/ara/@Model.CategorySeoName" class="ui-btn ui-btn-c" style="text-align: right;">Ara <i class="fa fa-search" ></i></a>
+</div>
+<div data-role="main" class="ui-content">
+    <h1 style="
+    color: #a8333e;margin-top: 0px;
+">
+        @h1
+    </h1>
+    <h2>Toplam @Model.Oyunlar.Where(x=>x.cat_id==Model.CategoryId).Count() @Model.CategoryName Oyunu</h2>
+    <p>@Model.CategoryDescription</p>
+    <div class="ui-grid-d" data-filter="true" data-input="#filterBasic-input">
+        @foreach (var item in a)
+        {
+            <a href="/oyna/@item.game_name_seo" class="ui-btn ui-btn-inline ui-corner-all ui-mini" style="max-width: 113px; width: 100%;">
+                <p style="
+    white-space: normal;
+    height: 3em;
+">@item.game_name</p><img src="/games/@item.smallimage" style="width:100%; max-width:80px" /><br />
+                @for (int i = 1; i < 6; i++)
+                {
+                    if (i <= item.rating)
+                    {
+                        <i class="fa fa-star" style="color:#f6a031; "></i>
+                    }
+                    else
+                    {
+                        <i class="fa fa-star" style="color:#868686; "></i>
+                    }
+                }
+            </a>
+        }
+    </div>
+</div>
+

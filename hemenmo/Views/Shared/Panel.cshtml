@@ -1,0 +1,19 @@
+﻿@model hemenmo.Models.home
+           
+<div data-role="panel" id="myPanel">
+    <ul data-role="listview">
+    <li><a href="/" class="ui-btn ui-btn-b"><i class="fa fa-home" style="font-size:24px"></i> Ana Sayfa</a></li>
+    <li><a href="/oyun/ara" class="ui-btn"><i class="fa fa-search" style="font-size:24px"></i> Arama Yap</a></li>
+    <li><a href="/en-cok-sevilen-mobil-oyunlar" class="ui-btn ui-mini"><i class="fa fa-play"></i> En Beğenilenler</a></li>
+    <li><a href="/en-cok-oynanan-mobil-oyunlar" class="ui-btn ui-mini"><i class="fa fa-play"></i> En Çok Oynananlar</a></li>
+    <li><a href="/en-yeni-mobil-oyunlar" class="ui-btn ui-mini"><i class="fa fa-play"></i> Yeni Eklenenler</a></li>
+    <li><a href="/one-cikan-mobil-oyunlar" class="ui-btn ui-mini"><i class="fa fa-play"></i> Önerilenler</a></li>
+    @foreach (var item in Model.Kategoriler)
+        {
+        <li>
+            <a href="/oyun/@item.category_name_seo" class="ui-btn">
+                <i class="fa @item.category_icon" style="font-size:24px"></i> @item.category_name</a>
+        </li>
+        }
+    </ul>
+</div>

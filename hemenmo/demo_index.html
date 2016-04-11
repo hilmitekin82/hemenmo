@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/jquery.mobile-1.4.5.css">
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<script type="text/javascript">
+
+var photos=new Array()
+var photoslink=new Array()
+var which=0
+
+//define images. You can have as many as you want:
+photos[0]="/images/photo1.jpg"
+photos[1]="/images/photo2.jpg"
+photos[2]="/images/photo3.jpg"
+
+//Specify whether images should be linked or not (1=linked)
+var linkornot=0
+
+//Set corresponding URLs for above images. Define ONLY if variable linkornot equals "1"
+photoslink[0]=""
+photoslink[1]=""
+photoslink[2]=""
+
+//do NOT edit pass this line
+
+var preloadedimages=new Array()
+for (i=0;i<photos.length;i++){
+preloadedimages[i]=new Image()
+preloadedimages[i].src=photos[i]
+}
+
+
+function applyeffect(){
+if (document.all && photoslider.filters){
+photoslider.filters.revealTrans.Transition=Math.floor(Math.random()*23)
+photoslider.filters.revealTrans.stop()
+photoslider.filters.revealTrans.apply()
+}
+}
+
+
+
+function playeffect(){
+if (document.all && photoslider.filters)
+photoslider.filters.revealTrans.play()
+}
+
+function keeptrack(){
+window.status="Image "+(which+1)+" of "+photos.length
+}
+
+
+function backward(){
+if (which>0){
+which--
+applyeffect()
+document.images.photoslider.src=photos[which]
+playeffect()
+keeptrack()
+}
+}
+
+function forward(){
+if (which<photos.length-1){
+which++
+applyeffect()
+document.images.photoslider.src=photos[which]
+playeffect()
+keeptrack()
+}
+}
+
+function transport(){
+window.location=photoslink[which]
+}
+
+</script>
+<script>
+$(document).on("pagecreate","#pageone",function(){
+	$("img").on("swiperight",function(){
+		backward();return false;
+	});
+});
+</script>
+<script>
+$(document).on("pagecreate","#pageone",function(){
+	$("img").on("swipeleft",function(){
+		forward();return false;
+	});
+});
+</script>
+</head>
+<body>
+<div data-role="page" id="pageone">
+  <div data-role="panel" id="myPanel">
+<ul data-role="listview">
+<li><a href="/demo_index.html" class="ui-btn ui-btn-b"><i class="fa fa-home" style="font-size:24px"></i> Ana Sayfa</a></li>
+<li><a href="/search.html" class="ui-btn ui-mini"><i class="fa fa-play"></i> En Beðenilenler</a></li>
+<li><a href="/search.html" class="ui-btn ui-mini"><i class="fa fa-play"></i> En Çok Oynananlar</a></li>
+<li><a href="/search.html" class="ui-btn ui-mini"><i class="fa fa-play"></i> Yeni Eklenenler</a></li>
+<li><a href="/search.html" class="ui-btn ui-mini"><i class="fa fa-play"></i> Önerilenler</a></li>
+<li><a href="/category.html" class="ui-btn"><i class="fa fa-gamepad" style="font-size:24px"></i> Aksiyon</a></li>
+<li><a href="/category.html" class="ui-btn"><i class="fa fa-car" style="font-size:24px"></i> Araba</a></li>
+<li><a href="/category.html" class="ui-btn"><i class="fa fa-rocket" style="font-size:24px"></i> Arcade</a></li>
+<li><a href="/category.html" class="ui-btn"><i class="fa fa-neuter" style="font-size:24px"></i> Balon Patlatma</a></li>
+</ul>
+  </div> 
+  <div data-role="header">
+<a href="#myPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow"><i class="fa fa-bars" style="font-size:150%"></i></a>
+<a href="/demo_index.html" class="ui-btn ui-btn-inline ui-icon-home ui-corner-all ui-shadow"><i class="fa fa-home" style="font-size:150%"></i></a>
+    <h1><img src="/images/logo.png" style="
+    width: 100%;
+    max-width: 200px;
+"/></h1>
+    <div data-role="navbar">
+      <ul>
+        <li><a href="/category.html" data-theme="c">MMO-RPG</a></li>
+        <li><a href="/category.html" data-theme="b">BECERÝ</a></li>
+<li><a href="/category.html" data-theme="c">KIZ</a></li>
+<li><a href="/category.html" data-theme="b">ZEKA</a></li>
+<li><a href="/category.html" data-theme="c">AKSÝYON</a></li>
+      </ul>
+    </div>
+  </div>
+  <div data-role="main" class="ui-content">
+    
+	<center>
+<script>
+if (linkornot==1)
+document.write('<a href="javascript:transport()">')
+document.write('<img src="'+photos[0]+'" id="photoslider" name="photoslider" style="filter:revealTrans(duration=2,transition=23); box-shadow: 4px 10px 10px #888888;width:100%;max-width:600px" border=0>')
+if (linkornot==1)
+document.write('</a>')
+</script>
+<div  data-role="main" class="ui-content">
+    <span>Hem arkadaþlarýnýzla hem de kendi baþýnýza oynayabileceðiniz onlarca mobil oyun Hemen Mobil Oyun'da</span>
+	</div>
+    </center>
+  </div>
+  <div class="ui-header ui-bar-b">
+  <center>
+<a href="/gameplay.html" class="ui-btn ui-btn-inline ui-corner-all">Yeni Oyun</a>
+<a href="/search.html" class="ui-btn ui-btn-inline ui-corner-all">Beðeniler</a>
+<a href="/search.html" class="ui-btn ui-btn-inline ui-corner-all">Öneriler</a>
+</center>
+</div>
+<div  data-role="main" class="ui-content">
+  <center>
+  
+<a href="/gameplay.html" class="ui-btn ui-btn-inline ui-corner-all"><img src="/images/m1.jpg" style="width:100%; max-width:100px" /><br/>
+<i class="fa fa-star" style="color:gold; "></i><i class="fa fa-star" style="color:gold;"></i><i class="fa fa-star" style="color:gold;"></i><i class="fa fa-star" style="color:gold;"></i><i class="fa fa-star"></i></a>
+<a href="/gameplay.html" class="ui-btn ui-btn-inline ui-corner-all"><img src="/images/m6.jpg" style="width:100%; max-width:100px"  /><br/>
+<i class="fa fa-star" style="color:gold;"></i><i class="fa fa-star" style="color:gold;"></i><i class="fa fa-star" style="color:gold;"></i><i class="fa fa-star" style="color:gold;"></i><i class="fa fa-star"></i></a>
+<a href="/gameplay.html" class="ui-btn ui-btn-inline ui-corner-all"><img src="/images/m9.jpg" style="width:100%; max-width:100px"  /><br/>
+<i class="fa fa-star" style="color:gold;"></i><i class="fa fa-star" style="color:gold;"></i><i class="fa fa-star" style="color:gold;"></i><i class="fa fa-star" style="color:gold;"></i><i class="fa fa-star"></i></a>
+<a href="/gameplay.html" class="ui-btn ui-btn-inline ui-corner-all"><img src="/images/m11.jpg" style="width:100%; max-width:100px"  /><br/>
+<i class="fa fa-star" style="color:gold;"></i><i class="fa fa-star" style="color:gold;"></i><i class="fa fa-star" style="color:gold;"></i><i class="fa fa-star" style="color:gold;"></i><i class="fa fa-star"></i></a>
+</center>
+</div>
+  <div data-role="footer">
+    <h1>Hemen Mobil Oyna</h1>
+  </div>
+  
+</div> 
+
+</body>
+</html>

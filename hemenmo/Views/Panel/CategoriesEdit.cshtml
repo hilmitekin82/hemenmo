@@ -1,0 +1,32 @@
+﻿@model hemenmo.Models.panel
+@{
+    ViewBag.Title = "Kategori Edit";
+    Layout = "~/Views/Shared/admin_panel.cshtml";
+}
+
+  <div data-role="main" class="ui-content">
+    <form method="post" action="/panel/kategoriedit/@Model.AdminCategorySeoName">
+      <div class="ui-field-contain">
+          <input type="text" name="id" id="id" style="display:none;" value="@Model.AdminCategoryId">
+        <label for="category">Kategori:</label>
+          <input type="text" name="category" id="category" value="@Model.AdminCategoryName">
+          <label for="description">Açıklama:</label>
+          <input type="text" name="description" id="description" value="@Model.AdminCategoryDescription">
+          <label for="top_menu">Üst Menü:</label>
+          <input type="text" name="top_menu" id="top_menu" value="@Model.AdminCategoryTopMenu">
+          <label for="panel">Yan Menü:</label>
+          <input type="text" name="panel" id="panel" value="@Model.AdminCategoryPanel">
+
+</div>
+<input type="submit" data-inline="true" value="Güncelle">
+<a data-inline="true" href="/panel/kategorisil/@Model.AdminCategoryId" class="ui-btn ui-btn-inline">Sil</a>
+</form>
+</div>
+<div data-role="main" class="ui-content">
+        <ul data-role="listview">
+            @foreach (var item in Model.AdminKategoriler)
+            {
+                <li><a href="/panel/kategoriedit/@item.category_name_seo">@item.category_name</a></li>
+            }
+        </ul>
+    </div>

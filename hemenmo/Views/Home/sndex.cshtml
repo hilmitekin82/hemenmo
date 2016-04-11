@@ -1,0 +1,144 @@
+﻿@model hemenmo.Models.home
+    
+@{
+    ViewBag.Title = "Hemen Mobil Oyna";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section header
+{
+<script type="text/javascript">
+
+        var photos = new Array()
+        var photoslink = new Array()
+        var which = 0
+
+        //define images. You can have as many as you want:
+        @{
+            int i=0;
+            foreach (var slide in Model.slider.OrderBy(x=>x.image_order).Where(z=>z.image_active==1))
+            {
+                <text>
+                    photos[@i] = "@slide.image_name"
+                </text>
+                i++;
+            }
+        }
+
+
+
+        //Specify whether images should be linked or not (1=linked)
+
+        var linkornot = 0
+
+        //Set corresponding URLs for above images. Define ONLY if variable linkornot equals "1"
+        photoslink[0] = ""
+        photoslink[1] = ""
+        photoslink[2] = ""
+
+        //do NOT edit pass this line
+
+        var preloadedimages = new Array()
+        for (i = 0; i < photos.length; i++) {
+            preloadedimages[i] = new Image()
+            preloadedimages[i].src = photos[i]
+        }
+
+
+        function applyeffect() {
+            if (document.all && photoslider.filters) {
+                photoslider.filters.revealTrans.Transition = Math.floor(Math.random() * 23)
+                photoslider.filters.revealTrans.stop()
+                photoslider.filters.revealTrans.apply()
+            }
+        }
+
+
+
+        function playeffect() {
+            if (document.all && photoslider.filters)
+                photoslider.filters.revealTrans.play()
+        }
+
+        function keeptrack() {
+            window.status = "Image " + (which + 1) + " of " + photos.length
+        }
+
+
+        function backward() {
+            if (which > 0) {
+                which--
+                applyeffect()
+                document.images.photoslider.src = photos[which]
+                playeffect()
+                keeptrack()
+            }
+        }
+
+        function forward() {
+            if (which < photos.length - 1) {
+                which++
+                applyeffect()
+                document.images.photoslider.src = photos[which]
+                playeffect()
+                keeptrack()
+            }
+        }
+
+        function transport() {
+            window.location = photoslink[which]
+        }
+
+    </script>
+<script>
+    $(document).on("pagecreate", "#pageone", function () {
+        $("img").on("swiperight", function () {
+            mySwipe.prev(); return false;
+        });
+    });
+</script>
+<script>
+    $(document).on("pagecreate", "#pageone", function () {
+        $("img").on("swipeleft", function () {
+            mySwipe.next(); return false;
+        });
+    });
+</script>
+
+
+
+}
+<div data-role="navbar">
+    <ul>
+        @{
+            int k=0;
+        }
+    @foreach (var kategory in Model.Kategoriler.Take(5).Where(x=>x.category_top_menu!=0))
+    {
+        if (k % 2 == 0)
+        {
+        <li><a href="/oyun/@kategory.category_name_seo" data-theme="c">@kategory.category_name</a></li>
+        }
+        else
+        {
+        <li><a href="/oyun/@kategory.category_name_seo" data-theme="b">@kategory.category_name</a></li>
+        }
+        k++;
+    }
+    </ul>
+</div>
+  </div>
+<div data-role="main" class="ui-content" style="padding:0px !important;" data-ajax="false">
+
+    <center>
+        <script>
+if (linkornot==1)
+document.write('<a href="javascript:transport()">')
+document.write('<img src="'+photos[0]+'" id="photoslider" name="photoslider" style="filter:revealTrans(duration=2,transition=23); box-shadow: 4px 10px 10px #888888;width:100%" border=0>')
+if (linkornot==1)
+document.write('</a>')
+        </script>
+        <div data-role="main" class="ui-content">
+            <span class="ui-sub-text">Hem arkadaşlarınızla hem de kendi başınıza oynayabileceğiniz onlarca mobil oyun Hemen Mobil Oyun'da</span>
+        </div>
+    </center>
+</div>

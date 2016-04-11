@@ -1,0 +1,11 @@
+﻿@model hemenmo.Models.panel
+
+@{
+    ViewBag.Title = "Admin Panel";
+    Layout = "~/Views/Shared/admin_panel.cshtml";
+}
+    <div data-role="main" class="ui-content">
+        <span>
+        
+        Toplam </span><span style="color:Red;">@Model.katsay </span><span>kategoride </span><span style="color:Red;">@Model.oyunsay </span><span> oyun bulunmaktadır.</span>
+    </div>

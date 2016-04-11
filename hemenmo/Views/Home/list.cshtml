@@ -1,0 +1,45 @@
+﻿@model hemenmo.Models.home
+
+@{
+    ViewBag.Title = Model.PageTitle;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+</div>
+<div class="ui-header ui-bar-c">
+    <a href="/" class="ui-btn ui-btn-c" style="text-align: left;"><i class="fa fa-chevron-circle-left"></i> Geri</a>
+    <form class="ui-filterable">
+        <input id="filterBasic-input" data-type="search" placeholder="Oyun ara...">
+    </form>
+</div>
+<div data-role="main" class="ui-content">
+    <h1 style="
+    color: #a8333e;margin-top: 0px;
+">
+        @Model.PageTitle
+    </h1>
+    <p>Toplam @Model.Oyunlar.Count() Oyun</p>
+    <div class="ui-grid-d" data-filter="true" data-input="#filterBasic-input">
+
+        @foreach (var item in Model.Oyunlar.Take(27))
+        {
+            <a href="/oyna/@item.game_name_seo" class="ui-btn ui-btn-inline ui-corner-all ui-mini" style="max-width: 113px; width: 100%;">
+                <p style="
+    white-space: normal;
+    height: 3em;
+">@item.game_name</p><img src="/games/@item.smallimage" style="width:100%; max-width:80px" /><br />
+                @for (int i = 1; i < 6; i++)
+                {
+                    if (i <= item.rating)
+                    {
+                        <i class="fa fa-star" style="color:#f6a031; "></i>
+                    }
+                    else
+                    {
+                        <i class="fa fa-star" style="color:#868686; "></i>
+                    }
+                }
+            </a>
+        }
+    </div>
+</div>

@@ -1,0 +1,67 @@
+﻿@model hemenmo.Models.panel
+@{
+    ViewBag.Title = "Oyun Edit";
+    Layout = "~/Views/Shared/admin_panel.cshtml";
+}
+
+<div data-role="main" class="ui-content">
+    <form method="post" action="/panel/oyunedit" enctype="multipart/form-data" data-ajax="false">
+        <div class="ui-field-contain">
+
+            <label for="name">Oyun Adı:</label>
+            <input type="text" name="name" id="name" value="@Model.Admingame_name">
+            <label for="rozet" class="select">Rozet:</label>
+            <select name="rozet" id="rozet">
+                <option value=1 @if(Model.AdminGamerozet==1){<text>selected="selected"</text>} >Yeni</option>
+                <option value=2 @if(Model.AdminGamerozet==2){ <text> selected="selected" </text>} >Türkçe</option>
+                <option value=3 @if(Model.AdminGamerozet ==3){ <text> selected="selected" </text>} >Özel</option>
+            </select>
+            <label for="cat_id" class="select">Kategori:</label>
+            <select name="cat_id" id="cat_id">
+                @foreach (var item in Model.AdminKategoriler)
+                {
+                    if (item.category_id == Model.Admingame_cat_id)
+                    {
+                        <option selected="selected" value="@item.category_id">@item.category_name</option>
+                    }
+                    else
+                    {
+                        <option value="@item.category_id">@item.category_name</option>
+                    }
+
+                }
+            </select>
+
+            <label for="title">Başlık:</label>
+            <input type="text" name="title" id="title" value="@Model.Admingame_title">
+
+            <label for="spot">Kısa Açıklama:</label>
+            <input type="text" name="spot" id="spot" value="@Model.Admingame_spot">
+
+            <label for="description">Açıklama:</label>
+            <textarea cols="40" rows="8" name="description" id="description">@Model.Admingame_description</textarea>
+
+            <label for="embed_code">Gömülü Kod:</label>
+            <textarea cols="40" rows="8" name="embed_code" id="embed_code">@Model.Admingame_embed_code</textarea>
+
+            <label for="gameplay_url">Dış bağlantı yolu:</label>
+            <input type="text" name="gameplay_url" id="gameplay_url" value="@Model.Admingame_gameplay_url">
+
+            <label for="smallimage">Küçük Resim:</label>
+            <input type="file" name="smallimage" id="smallimage">
+
+            <label for="bigimage">Büyük Resim:</label>
+            <input type="file" name="bigimage" id="bigimage">
+        </div>
+        <input type="submit" data-inline="true" value="Ekle" />
+        <a data-inline="true" href="/panel/oyunsil/@Model.Admingame_id" class="ui-btn ui-btn-inline">Sil</a>
+    </form>
+</div>
+<div data-role="main" class="ui-content">
+    <ul data-role="listview">
+        @foreach (var item in Model.AdminOyunlar)
+        {
+            <li><a href="/panel/oyunedit/@item.game_name_seo"><img src="/games/@item.smallimage" />@item.game_name</a></li>
+        }
+    </ul>
+</div>
